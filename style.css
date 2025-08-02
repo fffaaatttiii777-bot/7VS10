@@ -1,503 +1,283 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    line-height: 1.6;
-    color: #333;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    min-height: 100vh;
-}
-
-/* Navigation Styles */
-.navbar {
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    box-shadow: 0 2px 20px rgba(0,0,0,0.1);
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
-    transition: all 0.3s ease;
-}
-
-.nav-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 70px;
-}
-
-.nav-logo h2 {
-    color: #2c3e50;
-    font-weight: 700;
-    font-size: 1.8rem;
-}
-
-.nav-menu {
-    display: flex;
-    list-style: none;
-    gap: 0;
-}
-
-.nav-item {
-    position: relative;
-}
-
-.nav-link {
-    text-decoration: none;
-    color: #2c3e50;
-    font-weight: 600;
-    padding: 15px 20px;
-    display: block;
-    transition: all 0.3s ease;
-    border-radius: 8px;
-}
-
-.nav-link:hover {
-    background: #3498db;
-    color: white;
-    transform: translateY(-2px);
-}
-
-.dropdown-toggle i {
-    margin-left: 5px;
-    font-size: 0.8rem;
-    transition: transform 0.3s ease;
-}
-
-.dropdown:hover .dropdown-toggle i {
-    transform: rotate(180deg);
-}
-
-/* Dropdown Menu Styles */
-.dropdown-menu {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background: white;
-    border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(-10px);
-    transition: all 0.3s ease;
-    min-width: 800px;
-    padding: 30px;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 30px;
-    z-index: 1001;
-}
-
-.dropdown:hover .dropdown-menu {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-}
-
-.dropdown-section h4 {
-    color: #2c3e50;
-    font-size: 1.1rem;
-    margin-bottom: 15px;
-    padding-bottom: 8px;
-    border-bottom: 2px solid #3498db;
-    font-weight: 700;
-}
-
-.dropdown-section a {
-    display: block;
-    color: #666;
-    text-decoration: none;
-    padding: 8px 12px;
-    border-radius: 6px;
-    transition: all 0.3s ease;
-    font-size: 0.95rem;
-}
-
-.dropdown-section a:hover {
-    background: #f8f9fa;
-    color: #3498db;
-    transform: translateX(5px);
-}
-
-.year-grid, .season-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 8px;
-}
-
-.year-grid a, .season-grid a {
-    padding: 6px 10px;
-    text-align: center;
-    font-size: 0.9rem;
-    background: #f8f9fa;
-    border-radius: 6px;
-}
-
-.year-grid a:hover, .season-grid a:hover {
-    background: #3498db;
-    color: white;
-    transform: scale(1.05);
-}
-
-/* Mobile Navigation */
-.nav-toggle {
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
-}
-
-.nav-toggle .bar {
-    width: 25px;
-    height: 3px;
-    background: #2c3e50;
-    margin: 3px 0;
-    transition: 0.3s;
-    border-radius: 2px;
-}
-
-/* Main Content */
-.container {
-    max-width: 1200px;
-    margin: 100px auto 0;
-    padding: 0 20px;
-}
-
-/* Filter Section */
-.filter-section {
-    background: white;
-    padding: 30px;
-    border-radius: 15px;
-    margin-bottom: 30px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    text-align: center;
-}
-
-.filter-section h1 {
-    color: #2c3e50;
-    font-size: 2.5rem;
-    margin-bottom: 30px;
-    font-weight: 700;
-}
-
-.filters {
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-}
-
-.filter-select {
-    padding: 12px 20px;
-    border: 2px solid #ddd;
-    border-radius: 25px;
-    font-size: 1rem;
-    background: white;
-    color: #2c3e50;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    min-width: 180px;
-}
-
-.filter-select:focus {
-    outline: none;
-    border-color: #3498db;
-    box-shadow: 0 0 10px rgba(52, 152, 219, 0.3);
-}
-
-.export-btn {
-    padding: 12px 25px;
-    background: #27ae60;
-    color: white;
-    border: none;
-    border-radius: 25px;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.export-btn:hover {
-    background: #219a52;
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(39, 174, 96, 0.4);
-}
-
-/* Stats Section */
-.stats-section {
-    margin-bottom: 40px;
-}
-
-.stats-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 20px;
-}
-
-.stat-card {
-    background: white;
-    border-radius: 15px;
-    padding: 25px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    transition: all 0.3s ease;
-}
-
-.stat-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-}
-
-.stat-header {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.stat-title {
-    font-size: 1.3rem;
-    font-weight: 700;
-    color: #2c3e50;
-    margin-bottom: 10px;
-}
-
-.stat-subtitle {
-    color: #666;
-    font-size: 0.9rem;
-}
-
-.stat-comparison {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-}
-
-.player-stat {
-    text-align: center;
-    padding: 20px;
-    border-radius: 10px;
-    position: relative;
-}
-
-.messi-stat {
-    background: linear-gradient(135deg, #74b9ff, #0984e3);
-    color: white;
-}
-
-.ronaldo-stat {
-    background: linear-gradient(135deg, #fd79a8, #e84393);
-    color: white;
-}
-
-.player-name {
-    font-size: 1.1rem;
-    font-weight: 600;
-    margin-bottom: 10px;
-}
-
-.stat-value {
-    font-size: 2rem;
-    font-weight: 700;
-    margin-bottom: 5px;
-}
-
-.stat-label {
-    font-size: 0.9rem;
-    opacity: 0.9;
-}
-
-.winner-badge {
-    position: absolute;
-    top: -10px;
-    right: -10px;
-    background: #f39c12;
-    color: white;
-    border-radius: 50%;
-    width: 30px;
-    height: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1rem;
-}
-
-/* Charts Section */
-.charts-section {
-    background: white;
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    margin-bottom: 40px;
-}
-
-.charts-section h2 {
-    text-align: center;
-    color: #2c3e50;
-    font-size: 2rem;
-    margin-bottom: 30px;
-    font-weight: 700;
-}
-
-.chart-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-    gap: 30px;
-}
-
-.chart-container {
-    background: #f8f9fa;
-    padding: 20px;
-    border-radius: 10px;
-    height: 300px;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .nav-menu {
-        position: fixed;
-        left: -100%;
-        top: 70px;
-        flex-direction: column;
-        background: white;
-        width: 100%;
-        text-align: center;
-        transition: 0.3s;
-        box-shadow: 0 10px 27px rgba(0,0,0,0.05);
-        height: calc(100vh - 70px);
-        overflow-y: auto;
+class MessiRonaldoComparison {
+    constructor() {
+        this.currentData = {};
+        this.charts = {};
+        this.init();
     }
 
-    .nav-menu.active {
-        left: 0;
+    init() {
+        this.setupEventListeners();
+        this.loadData('all-time-career'); // Load default data
+        this.setupMobileMenu();
     }
 
-    .nav-toggle {
-        display: flex;
+    setupEventListeners() {
+        // Filter changes
+        const categoryFilter = document.getElementById('categoryFilter');
+        const yearFilter = document.getElementById('yearFilter');
+        const statTypeFilter = document.getElementById('statTypeFilter');
+
+        if (categoryFilter) {
+            categoryFilter.addEventListener('change', (e) => {
+                console.log('Category changed to:', e.target.value);
+                this.loadData(e.target.value);
+            });
+        }
+
+        if (yearFilter) {
+            yearFilter.addEventListener('change', (e) => {
+                if (e.target.value !== 'all') {
+                    console.log('Year changed to:', e.target.value);
+                    this.loadData(e.target.value);
+                } else {
+                    const currentCategory = categoryFilter ? categoryFilter.value : 'all-time-career';
+                    this.loadData(currentCategory);
+                }
+            });
+        }
+
+        if (statTypeFilter) {
+            statTypeFilter.addEventListener('change', () => {
+                this.filterStats();
+            });
+        }
+
+        // Export functionality
+        const exportBtn = document.getElementById('exportBtn');
+        if (exportBtn) {
+            exportBtn.addEventListener('click', () => {
+                this.exportToCSV();
+            });
+        }
     }
 
-    .nav-toggle.active .bar:nth-child(2) {
-        opacity: 0;
+    setupMobileMenu() {
+        const navToggle = document.getElementById('navToggle');
+        const navMenu = document.querySelector('.nav-menu');
+
+        if (navToggle && navMenu) {
+            navToggle.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+                navToggle.classList.toggle('active');
+            });
+        }
     }
 
-    .nav-toggle.active .bar:nth-child(1) {
-        transform: translateY(8px) rotate(45deg);
+    loadData(category) {
+        console.log('Loading data for category:', category);
+        
+        if (!messiRonaldoData[category]) {
+            console.error(`No data found for category: ${category}`);
+            // Fall back to career stats if category not found
+            category = 'all-time-career';
+        }
+
+        this.currentData = messiRonaldoData[category];
+        console.log('Current data loaded:', this.currentData);
+        
+        this.renderStats();
+        this.renderCharts();
     }
 
-    .nav-toggle.active .bar:nth-child(3) {
-        transform: translateY(-8px) rotate(-45deg);
+    renderStats() {
+        const statsGrid = document.getElementById('statsGrid');
+        if (!statsGrid) {
+            console.error('Stats grid element not found');
+            return;
+        }
+
+        // Clear existing content
+        statsGrid.innerHTML = '';
+
+        if (!this.currentData || !this.currentData.messi || !this.currentData.ronaldo) {
+            statsGrid.innerHTML = '<p class="text-center text-red-500">No data available for this selection</p>';
+            return;
+        }
+
+        const statCategories = [
+            {
+                title: 'Goals',
+                messiValue: this.currentData.messi.goals || 0,
+                ronaldoValue: this.currentData.ronaldo.goals || 0,
+                type: 'number'
+            },
+            {
+                title: 'Assists',
+                messiValue: this.currentData.messi.assists || 0,
+                ronaldoValue: this.currentData.ronaldo.assists || 0,
+                type: 'number'
+            },
+            {
+                title: 'Appearances',
+                messiValue: this.currentData.messi.appearances || 0,
+                ronaldoValue: this.currentData.ronaldo.appearances || 0,
+                type: 'number'
+            },
+            {
+                title: 'Goals Per Game',
+                messiValue: this.currentData.messi.goalsPerGame || 0,
+                ronaldoValue: this.currentData.ronaldo.goalsPerGame || 0,
+                type: 'decimal'
+            },
+            {
+                title: 'Hat-tricks',
+                messiValue: this.currentData.messi.hatTricks || 0,
+                ronaldoValue: this.currentData.ronaldo.hatTricks || 0,
+                type: 'number'
+            },
+            {
+                title: 'Penalties',
+                messiValue: this.currentData.messi.penalties || '0/0',
+                ronaldoValue: this.currentData.ronaldo.penalties || '0/0',
+                type: 'text'
+            },
+            {
+                title: 'Free Kick Goals',
+                messiValue: this.currentData.messi.freeKicks || 0,
+                ronaldoValue: this.currentData.ronaldo.freeKicks || 0,
+                type: 'number'
+            }
+        ];
+
+        // Add Man of the Match if available
+        if (this.currentData.messi.motm || this.currentData.ronaldo.motm) {
+            statCategories.push({
+                title: 'Man of the Match',
+                messiValue: this.currentData.messi.motm || 0,
+                ronaldoValue: this.currentData.ronaldo.motm || 0,
+                type: 'number'
+            });
+        }
+
+        // Add Average Rating if available
+        if (this.currentData.messi.avgRating || this.currentData.ronaldo.avgRating) {
+            statCategories.push({
+                title: 'Average Rating',
+                messiValue: this.currentData.messi.avgRating || 0,
+                ronaldoValue: this.currentData.ronaldo.avgRating || 0,
+                type: 'decimal'
+            });
+        }
+
+        statCategories.forEach(stat => {
+            const statCard = this.createStatCard(stat);
+            statsGrid.appendChild(statCard);
+        });
+
+        console.log('Stats rendered successfully');
     }
 
-    .dropdown-menu {
-        position: static;
-        opacity: 1;
-        visibility: visible;
-        transform: none;
-        box-shadow: none;
-        border-top: 1px solid #eee;
-        border-radius: 0;
-        min-width: auto;
-        padding: 20px;
-        grid-template-columns: 1fr;
-        gap: 20px;
+    createStatCard(stat) {
+        const card = document.createElement('div');
+        card.className = 'stat-card bg-white rounded-lg p-6 shadow-lg';
+
+        const winner = this.determineWinner(stat.messiValue, stat.ronaldoValue);
+        
+        card.innerHTML = `
+            <div class="stat-header text-center mb-4">
+                <h3 class="stat-title text-xl font-bold text-gray-800">${stat.title}</h3>
+            </div>
+            <div class="stat-comparison grid grid-cols-2 gap-4">
+                <div class="player-stat messi-stat bg-blue-100 p-4 rounded text-center">
+                    ${winner === 'messi' ? '<div class="winner-badge">👑</div>' : ''}
+                    <div class="player-name font-semibold text-blue-700">Messi</div>
+                    <div class="stat-value text-2xl font-bold text-blue-800">${this.formatValue(stat.messiValue, stat.type)}</div>
+                </div>
+                <div class="player-stat ronaldo-stat bg-orange-100 p-4 rounded text-center">
+                    ${winner === 'ronaldo' ? '<div class="winner-badge">👑</div>' : ''}
+                    <div class="player-name font-semibold text-orange-700">Ronaldo</div>
+                    <div class="stat-value text-2xl font-bold text-orange-800">${this.formatValue(stat.ronaldoValue, stat.type)}</div>
+                </div>
+            </div>
+        `;
+
+        return card;
     }
 
-    .year-grid, .season-grid {
-        grid-template-columns: repeat(3, 1fr);
+    determineWinner(messiValue, ronaldoValue) {
+        const messiNum = this.extractNumber(messiValue);
+        const ronaldoNum = this.extractNumber(ronaldoValue);
+
+        if (messiNum === ronaldoNum) return 'tie';
+        return messiNum > ronaldoNum ? 'messi' : 'ronaldo';
     }
 
-    .filter-section h1 {
-        font-size: 2rem;
+    extractNumber(value) {
+        if (typeof value === 'number') return value;
+        if (typeof value === 'string') {
+            // Handle penalty format "24/29"
+            if (value.includes('/')) {
+                const parts = value.split('/');
+                return parseInt(parts[0]) || 0;
+            }
+            return parseFloat(value) || 0;
+        }
+        return 0;
     }
 
-    .filters {
-        flex-direction: column;
-        gap: 15px;
+    formatValue(value, type) {
+        if (type === 'decimal') {
+            return typeof value === 'number' ? value.toFixed(2) : value;
+        }
+        if (type === 'number' && typeof value === 'number') {
+            return value.toLocaleString();
+        }
+        return value;
     }
 
-    .filter-select {
-        width: 100%;
-        max-width: 300px;
+    renderCharts() {
+        // Charts implementation (you can expand this later)
+        console.log('Charts would be rendered here');
     }
 
-    .stats-grid {
-        grid-template-columns: 1fr;
+    filterStats() {
+        const filter = document.getElementById('statTypeFilter').value;
+        const statCards = document.querySelectorAll('.stat-card');
+        
+        statCards.forEach(card => {
+            const title = card.querySelector('.stat-title').textContent.toLowerCase();
+            let show = true;
+
+            switch(filter) {
+                case 'goals':
+                    show = title.includes('goal') || title.includes('hat-trick');
+                    break;
+                case 'assists':
+                    show = title.includes('assist');
+                    break;
+                case 'performance':
+                    show = title.includes('rating') || title.includes('match') || title.includes('per game');
+                    break;
+                default:
+                    show = true;
+            }
+
+            card.style.display = show ? 'block' : 'none';
+        });
     }
 
-    .chart-grid {
-        grid-template-columns: 1fr;
-    }
+    exportToCSV() {
+        const data = this.currentData;
+        let csv = 'Category,Messi,Ronaldo\n';
+        
+        Object.keys(data.messi).forEach(key => {
+            const messiValue = data.messi[key] || 0;
+            const ronaldoValue = data.ronaldo[key] || 0;
+            csv += `${key},${messiValue},${ronaldoValue}\n`;
+        });
 
-    .chart-container {
-        height: 250px;
+        const blob = new Blob([csv], { type: 'text/csv' });
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `messi_vs_ronaldo_${new Date().toISOString().split('T')[0]}.csv`;
+        a.click();
+        window.URL.revokeObjectURL(url);
     }
 }
 
-/* Loading Animation */
-.loading {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 200px;
-}
-
-.spinner {
-    width: 50px;
-    height: 50px;
-    border: 5px solid #f3f3f3;
-    border-top: 5px solid #3498db;
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
-/* Smooth Scrolling */
-html {
-    scroll-behavior: smooth;
-}
-
-/* Animations */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.fade-in-up {
-    animation: fadeInUp 0.6s ease-out;
-}
-
-/* Custom Scrollbar */
-::-webkit-scrollbar {
-    width: 8px;
-}
-
-::-webkit-scrollbar-track {
-    background: #f1f1f1;
-}
-
-::-webkit-scrollbar-thumb {
-    background: #888;
-    border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: #555;
-}
+// Initialize the application when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+    console.log('DOM loaded, initializing app...');
+    new MessiRonaldoComparison();
+});
