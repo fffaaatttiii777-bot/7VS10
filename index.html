@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Messi vs Ronaldo - Complete Stats Comparison</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>Messi vs Ronaldo</h2>
+            </div>
+            
+            <div class="nav-menu" id="navMenu">
+                <!-- All Time Stats Dropdown -->
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle">All Time Stats <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-menu">
+                        <div class="dropdown-section">
+                            <h4>General Stats</h4>
+                            <a href="#career-stats">All Time Career</a>
+                            <a href="#club-stats">Club Stats</a>
+                            <a href="#progression">Progression</a>
+                            <a href="#by-age">Stats by Age</a>
+                            <a href="#home-away">Home & Away</a>
+                            <a href="#head-to-head">Games vs Each Other</a>
+                        </div>
+                        <div class="dropdown-section">
+                            <h4>Calendar Years</h4>
+                            <div class="year-grid">
+                                <a href="#2025">2025</a>
+                                <a href="#2024">2024</a>
+                                <a href="#2023">2023</a>
+                                <a href="#2022">2022</a>
+                                <a href="#2021">2021</a>
+                                <a href="#2020">2020</a>
+                                <a href="#2019">2019</a>
+                                <a href="#2018">2018</a>
+                                <a href="#2017">2017</a>
+                                <a href="#2016">2016</a>
+                                <a href="#2015">2015</a>
+                                <a href="#2014">2014</a>
+                                <a href="#2013">2013</a>
+                                <a href="#2012">2012</a>
+                                <a href="#2011">2011</a>
+                                <a href="#2010">2010</a>
+                                <a href="#2009">2009</a>
+                                <a href="#2008">2008</a>
+                                <a href="#2007">2007</a>
+                                <a href="#2006">2006</a>
+                                <a href="#2005">2005</a>
+                                <a href="#2004">2004</a>
+                                <a href="#2003">2003</a>
+                                <a href="#2002">2002</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Club Stats Dropdown -->
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle">Club Stats <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-menu">
+                        <div class="dropdown-section">
+                            <h4>Competitions</h4>
+                            <a href="#club-overall">All Time Club</a>
+                            <a href="#champions-league">Champions League</a>
+                            <a href="#el-clasico">El Clasico</a>
+                            <a href="#vs-top-teams">vs Top Teams</a>
+                            <a href="#league-rankings">League Rankings</a>
+                        </div>
+                        <div class="dropdown-section">
+                            <h4>Messi's Clubs</h4>
+                            <a href="#messi-barcelona">Barcelona</a>
+                            <a href="#messi-psg">PSG</a>
+                            <a href="#messi-miami">Inter Miami</a>
+                        </div>
+                        <div class="dropdown-section">
+                            <h4>Ronaldo's Clubs</h4>
+                            <a href="#ronaldo-sporting">Sporting CP</a>
+                            <a href="#ronaldo-united">Man United</a>
+                            <a href="#ronaldo-madrid">Real Madrid</a>
+                            <a href="#ronaldo-juventus">Juventus</a>
+                            <a href="#ronaldo-alnassr">Al Nassr</a>
+                        </div>
+                        <div class="dropdown-section">
+                            <h4>By Season</h4>
+                            <div class="season-grid">
+                                <a href="#2024-25">2024/25</a>
+                                <a href="#2023-24">2023/24</a>
+                                <a href="#2022-23">2022/23</a>
+                                <a href="#2021-22">2021/22</a>
+                                <a href="#2020-21">2020/21</a>
+                                <a href="#2019-20">2019/20</a>
+                                <a href="#2018-19">2018/19</a>
+                                <a href="#2017-18">2017/18</a>
+                                <a href="#2016-17">2016/17</a>
+                                <a href="#2015-16">2015/16</a>
+                                <a href="#2014-15">2014/15</a>
+                                <a href="#2013-14">2013/14</a>
+                                <a href="#2012-13">2012/13</a>
+                                <a href="#2011-12">2011/12</a>
+                                <a href="#2010-11">2010/11</a>
+                                <a href="#2009-10">2009/10</a>
+                                <a href="#2008-09">2008/09</a>
+                                <a href="#2007-08">2007/08</a>
+                                <a href="#2006-07">2006/07</a>
+                                <a href="#2005-06">2005/06</a>
+                                <a href="#2004-05">2004/05</a>
+                                <a href="#2003-04">2003/04</a>
+                                <a href="#2002-03">2002/03</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- International Stats Dropdown -->
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle">International <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-menu">
+                        <div class="dropdown-section">
+                            <h4>Competitions</h4>
+                            <a href="#international-overall">All Time International</a>
+                            <a href="#world-cup">World Cup</a>
+                            <a href="#copa-euros">Copa America / Euros</a>
+                            <a href="#fifa-rankings">FIFA Rankings</a>
+                        </div>
+                        <div class="dropdown-section">
+                            <h4>By Year</h4>
+                            <div class="year-grid">
+                                <a href="#int-2024">2024</a>
+                                <a href="#int-2023">2023</a>
+                                <a href="#int-2022">2022</a>
+                                <a href="#int-2021">2021</a>
+                                <a href="#int-2020">2020</a>
+                                <a href="#int-2019">2019</a>
+                                <a href="#int-2018">2018</a>
+                                <a href="#int-2017">2017</a>
+                                <a href="#int-2016">2016</a>
+                                <a href="#int-2015">2015</a>
+                                <a href="#int-2014">2014</a>
+                                <a href="#int-2013">2013</a>
+                                <a href="#int-2012">2012</a>
+                                <a href="#int-2011">2011</a>
+                                <a href="#int-2010">2010</a>
+                                <a href="#int-2009">2009</a>
+                                <a href="#int-2008">2008</a>
+                                <a href="#int-2007">2007</a>
+                                <a href="#int-2006">2006</a>
+                                <a href="#int-2005">2005</a>
+                                <a href="#int-2004">2004</a>
+                                <a href="#int-2003">2003</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Detailed Stats Dropdown -->
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle">Detailed Stats <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-menu">
+                        <div class="dropdown-section">
+                            <h4>Goal Stats</h4>
+                            <a href="#goals">Goals</a>
+                            <a href="#non-penalty-goals">Non-Penalty Goals</a>
+                            <a href="#free-kicks">Free Kicks</a>
+                            <a href="#hat-tricks">Hat Tricks</a>
+                            <a href="#penalties">Penalties</a>
+                            <a href="#outside-box">Outside the Box</a>
+                        </div>
+                        <div class="dropdown-section">
+                            <h4>Assists & Passes</h4>
+                            <a href="#assists">All Assists</a>
+                            <a href="#opta-assists">Opta Assists</a>
+                            <a href="#key-passes">Key Passes</a>
+                            <a href="#big-chances">Big Chances Created</a>
+                            <a href="#throughballs">Throughballs</a>
+                        </div>
+                        <div class="dropdown-section">
+                            <h4>Performance</h4>
+                            <a href="#dribbles">Successful Dribbles</a>
+                            <a href="#aerial-duels">Aerial Duels</a>
+                            <a href="#shot-conversion">Shot Conversion</a>
+                            <a href="#xg">Expected Goals (xG)</a>
+                            <a href="#xa">Expected Assists (xA)</a>
+                        </div>
+                        <div class="dropdown-section">
+                            <h4>Awards & Ratings</h4>
+                            <a href="#motm">Man of the Match</a>
+                            <a href="#ratings">Average Ratings</a>
+                            <a href="#match-winning">Match Winning Goals</a>
+                            <a href="#points-contribution">Points Contribution</a>
+                            <a href="#defensive">Defensive Stats</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Honours Dropdown -->
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle">Honours <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-menu">
+                        <div class="dropdown-section">
+                            <h4>Team Trophies</h4>
+                            <a href="#team-trophies">All Team Trophies</a>
+                            <a href="#league-titles">League Titles</a>
+                            <a href="#champions-league-titles">Champions League</a>
+                            <a href="#international-trophies">International Trophies</a>
+                        </div>
+                        <div class="dropdown-section">
+                            <h4>Individual Awards</h4>
+                            <a href="#ballon-dor">Ballon d'Or</a>
+                            <a href="#golden-boot">Golden Boot</a>
+                            <a href="#uefa-awards">UEFA Awards</a>
+                            <a href="#fifa-awards">FIFA Awards</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Other Links -->
+                <div class="nav-item">
+                    <a href="#records" class="nav-link">Records</a>
+                </div>
+                <div class="nav-item">
+                    <a href="#match-histories" class="nav-link">Match Histories</a>
+                </div>
+                <div class="nav-item">
+                    <a href="#faqs" class="nav-link">FAQs</a>
+                </div>
+            </div>
+
+            <!-- Mobile menu toggle -->
+            <div class="nav-toggle" id="navToggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Filter Section -->
+        <section class="filter-section">
+            <h1>Messi vs Ronaldo - Complete Stats Comparison</h1>
+            <div class="filters">
+                <select id="categoryFilter" class="filter-select">
+                    <option value="all-time-career">All Time Career</option>
+                    <option value="all-time-club">All Time Club</option>
+                    <option value="all-time-international">All Time International</option>
+                    <option value="champions-league">Champions League</option>
+                    <option value="world-cup">World Cup</option>
+                    <option value="home-games">Home Games</option>
+                    <option value="away-games">Away Games</option>
+                    <option value="2024">2024 Stats</option>
+                    <option value="2023">2023 Stats</option>
+                    <option value="2022">2022 Stats</option>
+                </select>
+
+                <select id="yearFilter" class="filter-select">
+                    <option value="all">All Years</option>
+                    <option value="2025">2025</option>
+                    <option value="2024">2024</option>
+                    <option value="2023">2023</option>
+                    <option value="2022">2022</option>
+                    <option value="2021">2021</option>
+                    <option value="2020">2020</option>
+                    <option value="2019">2019</option>
+                    <option value="2018">2018</option>
+                    <option value="2017">2017</option>
+                    <option value="2016">2016</option>
+                    <option value="2015">2015</option>
+                    <option value="2014">2014</option>
+                    <option value="2013">2013</option>
+                    <option value="2012">2012</option>
+                    <option value="2011">2011</option>
+                    <option value="2010">2010</option>
+                    <option value="2009">2009</option>
+                    <option value="2008">2008</option>
+                    <option value="2007">2007</option>
+                    <option value="2006">2006</option>
+                    <option value="2005">2005</option>
+                    <option value="2004">2004</option>
+                    <option value="2003">2003</option>
+                    <option value="2002">2002</option>
+                </select>
+
+                <select id="statTypeFilter" class="filter-select">
+                    <option value="all">All Stats</option>
+                    <option value="goals">Goals Only</option>
+                    <option value="assists">Assists Only</option>
+                    <option value="performance">Performance Stats</option>
+                    <option value="trophies">Trophies</option>
+                </select>
+
+                <button id="exportBtn" class="export-btn">
+                    <i class="fas fa-download"></i> Export CSV
+                </button>
+            </div>
+        </section>
+
+        <!-- Stats Display -->
+        <section class="stats-section">
+            <div class="stats-grid" id="statsGrid">
+                <!-- Stats will be dynamically populated here -->
+            </div>
+        </section>
+
+        <!-- Charts Section -->
+        <section class="charts-section">
+            <h2>Visual Comparison</h2>
+            <div class="chart-grid">
+                <div class="chart-container">
+                    <canvas id="goalsChart"></canvas>
+                </div>
+                <div class="chart-container">
+                    <canvas id="assistsChart"></canvas>
+                </div>
+                <div class="chart-container">
+                    <canvas id="yearlyChart"></canvas>
+                </div>
+                <div class="chart-container">
+                    <canvas id="performanceChart"></canvas>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
